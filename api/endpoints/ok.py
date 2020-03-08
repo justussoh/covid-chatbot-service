@@ -6,7 +6,7 @@ class OK:
         success = updateRedis()
         if (success) :
             print(getFromRedis('UK', 'Deaths'))
-            response.media = getFromRedis('all', 'Deaths').decode("utf-8")
+            response.media = getFromRedis('all', 'Deaths')
         else:
             response.media = {"status" : "not OK"}
             
