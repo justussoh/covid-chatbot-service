@@ -2,6 +2,6 @@ import falcon
 
 from api.endpoints.ok import OK
 
-api = falcon.API(middleware=[])
+app = falcon.API(middleware=[])
 
-api.add_route('/', OK())
+app.add_route('/', OK())
