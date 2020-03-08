@@ -5,4 +5,3 @@ class OK:
 
     def on_get(self, request, response):
         response.media = fetch_data()
-        # response.media = {'status': 'OK'}
