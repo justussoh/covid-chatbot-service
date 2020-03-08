@@ -1,5 +1,8 @@
 import psycopg2 as psy
 
+seed_data = (
+        """INSERT INTO users (session_id,name)
+        VALUES ( 'A1234567C', 'Pereira Yip');""")
 class dbInit():
     try:
         try:
@@ -21,6 +24,7 @@ class dbInit():
         cur = conn.cursor()
         for command in commands:
             cur.execute(command)
+
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes
