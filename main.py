@@ -1,5 +1,5 @@
 import falcon
-from api.db.dbInit import dbInit 
+from api.db.db_init import dbInit 
 
 from api.endpoints.ok import OK
 from api.endpoints.chat import Chat
