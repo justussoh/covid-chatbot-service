@@ -5,5 +5,6 @@
 # Ignore Lub files
 lib/
 
-# virtual env
+__pycache__
+
 .venv
