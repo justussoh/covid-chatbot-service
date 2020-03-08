@@ -1,5 +1,12 @@
- runtime: python37
+runtime: python37
 
- handlers:
-   - url: /.*
-     script: auto
+handlers:
+  - url: /.*
+    script: auto
+
+env_variables:
+  REDISHOST: "10.73.77.227"
+  REDISPORT: "6379"
+
+vpc_access_connector:
+  name: "projects/covid-19-chatbot-270500/locations/us-central1/connectors/covid"
