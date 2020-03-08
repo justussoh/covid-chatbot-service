@@ -6,7 +6,7 @@ try:
 except:
     print("Error connecting to database.")
 
-def insert_query(query):
+def commit_query(query):
     cur.execute(query)
     cur.close()
     conn.commit()

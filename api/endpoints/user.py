@@ -30,6 +30,6 @@ class User:
 
         query = "INSERT INTO users (session_id,name) VALUES ( '{}', '{}')".format(session_id, name)
         
-        db.insert_query(query)
+        db.commit_query(query)
         resp.status = falcon.HTTP_200
         resp.media = ('User created.')
