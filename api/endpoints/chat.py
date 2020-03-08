@@ -1,4 +1,5 @@
 from data.redisFetch import getFromRedis
+from api.endpoints.quarantine import get_qurantine, post_quarantine
 
 class Chat:
 
@@ -6,12 +7,13 @@ class Chat:
         data = request.media
         query_result = data['queryResult']
         intent = query_result['intent']['displayName']
-        reply = get_fulfillment(intent)
+        session_id = query_result['outputContexts']['parameters']['facebook_sender_id']
+        reply = get_fulfillment(intent, session_id)
         response.media = reply
 
 
-def get_fulfillment(intent):
-    response = get_fulfillment_message(intent)
+def get_fulfillment(intent, session_id):
+    response = get_fulfillment_message(intent, session_id)
     if response['type'] == 'text':
         return _simple_message_response(response['content'])
     elif response['type'] == 'url':
@@ -19,7 +21,7 @@ def get_fulfillment(intent):
     return _simple_message_response("Sorry can you say that again!")
 
 
-def get_fulfillment_message(intent_name):
+def get_fulfillment_message(intent_name, session_id):
     response = dict()
     if intent_name == "Virus Situation - Total Worldwide Cases":
         all_confirmed = getFromRedis('all', 'confirmed')
@@ -35,6 +37,14 @@ def get_fulfillment_message(intent_name):
             'subtitle': 'Basic protective measures against the new coronavirus',
             'image_url': 'https://www.who.int/images/default-source/health-topics/coronavirus/social-media-squares/blue-1.tmb-1024v.png?sfvrsn=3d15aa1c_1',
         }
+    elif intent_name == "Checkin get":
+        text = get_qurantine(session_id)
+        response['type'] = "text"
+        response['content'] = text
+    elif intent_name == "Checkin post":
+        text = post_quarantine(session_id)
+        response['type'] = "text"
+        response['content'] = text
     return response
 
 
