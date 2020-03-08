@@ -22,8 +22,9 @@ def get_fulfillment(intent):
 def get_fulfillment_message(intent_name):
     response = dict()
     if intent_name == "Virus Situation - Total Worldwide Cases":
+        all_confirmed = getFromRedis('all', 'confirmed')
         response['type'] = "text"
-        response['content'] = "There are currently {} cases worldwide".format(123)
+        response['content'] = "There are currently {} cases worldwide".format(all_confirmed)
     elif intent_name == "Best Practices":
         response['type'] = "url"
         response['content'] = {
