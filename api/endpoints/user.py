@@ -3,17 +3,16 @@ from datetime import datetime
 
 import psycopg2 as psy
 
-class Quarantine:
-    # Return the remainder of days quarantined
+test_command = """INSERT INTO users (session_id,name)
+VALUES ( 'A1234567C', 'Pereira Yip');"""
+
+class User:
+    # Return user based on user_id
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200
         resp.media = ()
 
-    # Check in on quarantine.
+    # Create user (TODO: Customize this as necessary to accommodate dialogflow)
     def on_post(self, req, resp):
-        todate = datetime.date(datetime.now())
-        # get current user, update quarantine date.
-        command = """ """
-
         resp.status = falcon.HTTP_200
         resp.media = ()
