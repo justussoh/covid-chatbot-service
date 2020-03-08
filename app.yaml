@@ -9,4 +9,4 @@ env_variables:
   REDISPORT: "6379"
 
 vpc_access_connector:
-  name: "projects/covid-19-chatbot-270500/locations/us-central1/connectors/covid-hack"
+  name: "projects/covid-19-chatbot-270500/locations/us-central1/connectors/covid"
