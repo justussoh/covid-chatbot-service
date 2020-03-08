@@ -1,0 +1,6 @@
+# IDE / Code Editor
+.idea/
+.vscode/
+
+# Ignore Lub files
+lib/
