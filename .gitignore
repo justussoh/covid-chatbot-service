@@ -4,3 +4,6 @@
 
 # Ignore Lub files
 lib/
+
+# virtual env
+.venv
