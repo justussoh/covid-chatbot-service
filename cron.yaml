@@ -1,0 +1,4 @@
+cron:
+  - description: "fetch from covid url"
+    url: /
+    schedule: every 2 mins
