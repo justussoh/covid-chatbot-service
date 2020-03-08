@@ -7,7 +7,7 @@ class Chat:
         data = request.media
         query_result = data['queryResult']
         intent = query_result['intent']['displayName']
-        session_id = query_result['outputContexts']['parameters']['facebook_sender_id']
+        session_id = query_result['outputContexts'][0]['parameters']['facebook_sender_id']
         reply = get_fulfillment(intent, session_id)
         response.media = reply
 
