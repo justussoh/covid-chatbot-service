@@ -3,3 +3,6 @@ deploy:
 
 install:
 	pip install -r requirements.txt
+
+run-local:
+	pipenv run gunicorn -w 1 main:app
