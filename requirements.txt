@@ -1,6 +1,6 @@
 falcon==2.0.0
 redis==3.4.1
-requests==2.23.0
+requests==2.31.0
 ring==0.7.3
 ngrok==0.0.1
 psycopg2==2.8.4
